@@ -6,7 +6,12 @@ const sequelize = new Sequelize(
 {
 host: 'ec2-63-32-248-14.eu-west-1.compute.amazonaws.com',
 port: '5432',
-dialect: 'postgres'
+dialect: 'postgres',
+dialectOptions: {
+    ssl: {
+    rejectUnauthorized: false
+    }
+    }
 }
 );
 module.exports = sequelize;

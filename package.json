@@ -2,7 +2,7 @@
   "name": "projetofinal",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "App.js",
   "scripts": {
     "dev": "nodemon src/app.js",
     "start": "nodemon ./src/app.js"

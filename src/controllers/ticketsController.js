@@ -3,7 +3,7 @@ var sequelize = require("../model/database");
 var Tickets = require('../model/tickets');
 sequelize.sync();
 
-controller.list = async (req, res) => {
+controller.listatualizado = async (req, res) => {
     const data = await Tickets.findAll({
         where: { respondido: true },
     })
@@ -16,7 +16,7 @@ controller.list = async (req, res) => {
     res.json({success : true, data : data});
 }
 
-controller.listatualizado = async (req, res) => {
+controller.list = async (req, res) => {
     const data = await Tickets.findAll(
         {
             where: { respondido: false },
@@ -41,7 +41,7 @@ controller.create = async (req,res) => {
     email: email,
     telemovel: telemovel,
     mensagem: mensagem,
-    respondido: true
+    respondido: false
     })
     .then(function(data){
     return data;
@@ -65,7 +65,7 @@ controller.update = async (req,res) => {
     // parameter POST
     // Update data
     const data = await Tickets.update({
-    respondido: true
+    respondido: respondido
     },
     {
     where: { idticket: id}
